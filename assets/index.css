@@ -1,0 +1,155 @@
+body{
+    font-family: Montserrat;
+    font-weight: 400;
+    margin: 0;
+}
+
+.navbar{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000000;
+    padding: 15px 4% 15px 4%;
+}
+
+.navbar a{
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+}
+
+.logo{
+    font-weight: 600;
+    font-size: 32px !important;
+}
+
+.nav-list{
+    list-style: none;
+    display: flex;
+    gap: 111px;
+    padding: 0;
+}
+#toggler,
+.navbar .down-menu{
+    display: none;
+}
+
+.nav-list li{
+    display: inline-block;
+    position: relative;
+    transition: 0.4s all ease;
+}
+
+.nav-list li:hover{
+    color:#DD604E;
+    transition: 0.4s all ease;
+}
+
+.nav-list li::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform 0.5s ease-out;
+}
+
+.nav-list li:hover::after{
+    transform: scaleX(1);
+    transform-origin:bottom left;
+}
+
+.logo-block{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+@media screen and
+(max-width: 600px) {
+    .menu{
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+    }
+    .login{
+
+
+
+    }
+    .nav-list{
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+    }
+    .navbar label{
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    #toggler:checked ~ .menu{
+        max-height: 100%;
+    }
+}
+
+#checkbox{
+    display: none;
+}
+.toggler-theme{
+    display: block;
+    width: 60px;
+    height: 24px;
+    border: 1px solid #120082;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    background-color: #3E347E;
+}
+.ball,
+.sun,
+.moon{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.ball{
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-color:#D9D9D9;
+    border-radius: 50%;
+    left: 3px;
+    z-index: 10;
+    transition: transform .5s ease-in-out;
+}
+
+.sun{
+    left: 5px;
+}
+
+.moon{
+    right: 5px;
+}
+#checkbox:checked+ .ball{
+    transform: translate(35px,-50%);
+}
+
+.right-block{
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.login-block{
+    display: flex;
+    gap: 10px;
+}
+
+.login-logo{
+    height: 33px;
+}
