@@ -4,13 +4,23 @@ body{
     margin: 0;
 }
 
+input{
+    outline: none;
+}
+
 .navbar{
+    position: absolute;
+    z-index: 1;
+    width: -webkit-fill-available;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    height: 235px;
     justify-content: space-between;
-    background-color: #000000;
+    background-image: linear-gradient( rgba(0,0,0), rgba(0,0,0), rgba(0,0,0,78.5),rgba(0,0,0,0));
     padding: 15px 4% 15px 4%;
+    /* position: sticky;
+    top: 0; */
 }
 
 .navbar a{
@@ -71,15 +81,26 @@ body{
 }
 
 @media screen and
-(max-width: 600px) {
+(max-width: 1300px) {
+    .nav-list{
+        gap: 50px;
+    }
+    .navbar{
+        height: 123px;
+    }
+    .footer-banner{
+        height: 338px !important;
+    }
+}
+@media screen and
+(max-width: 1200px) {
     .menu{
         width: 100%;
         max-height: 0;
         overflow: hidden;
     }
-    .login{
-
-
+    .navbar{
+        flex-wrap: nowrap;
 
     }
     .nav-list{
@@ -89,7 +110,6 @@ body{
     }
     .navbar label{
         display: inline-flex;
-        align-items: center;
         cursor: pointer;
     }
     #toggler:checked ~ .menu{
@@ -152,4 +172,104 @@ body{
 
 .login-logo{
     height: 33px;
+}
+
+.main-banner{
+    width: -webkit-fill-available;
+}
+
+.cookie{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.cookie-items{
+    margin: 0 !important;
+    padding: 69px 128px 0px 0px;
+    list-style-type: none;
+    z-index: 1;
+    color: white;
+}
+.subscription{
+    z-index: 1;
+    padding-top: 69px;
+    display: flex;
+    flex-direction: column;
+}
+
+.subscription input[type="submit"] {
+    margin-left: -90px;
+    height: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    background-color: rgba(0,0,0,0);
+    width: 80px;
+    color: #DD604E;
+    cursor: pointer;
+}
+
+.subscription p{
+    text-align: center;
+    margin: 0px 0px 20px 0px;
+    font-weight: 600;
+    font-size: 20px;
+    color:white;
+}
+
+.subscription input{
+    padding-left: 20px ;
+    width: 267px;
+    height: 40px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    border:solid 1.5px #B8B8B8;
+    background-color: rgba(0,0,0,0);
+    &::placeholder{
+        color: #B8B8B8;
+    }
+}
+
+.cookie-items:nth-of-type(2){
+    padding-right: 116px;
+}
+
+.cookie-title{
+    font-weight: 600;
+    font-size: 20px;
+    padding-bottom: 33px;
+}
+
+.cookie-value, .cookie-number{
+    font-weight: 500;
+    font-size: 16px;
+    padding-bottom: 14px;
+}
+
+.footer-banner{
+    width: -webkit-fill-available;
+    height: 530px;
+    position: absolute;
+}
+
+.cookie-email{
+    text-decoration: underline;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.cookie-value a{
+    color: white;
+    text-decoration: none !important;
+
+    &:hover{
+        color: #DD604E;
+    }
+}
+
+.map{
+    width: -webkit-fill-available;
 }
