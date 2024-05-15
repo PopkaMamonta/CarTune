@@ -2,6 +2,7 @@ body{
     font-family: Montserrat;
     font-weight: 400;
     margin: 0;
+    background-color: #202B2D;
 }
 
 input{
@@ -10,7 +11,7 @@ input{
 
 .navbar{
     position: absolute;
-    z-index: 1;
+    z-index: 2;
     width: -webkit-fill-available;
     display: flex;
     flex-wrap: wrap;
@@ -90,6 +91,10 @@ input{
     }
     .footer-banner{
         height: 338px !important;
+    }
+    .aub-head img{
+        width: 50%;
+        height: 50%;
     }
 }
 @media screen and
@@ -176,12 +181,14 @@ input{
 
 .main-banner{
     width: -webkit-fill-available;
+    position: absolute;
 }
 
 .cookie{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    height: 338px;
 
 }
 
@@ -207,6 +214,7 @@ input{
     border: none;
     background-color: rgba(0,0,0,0);
     width: 80px;
+    text-shadow: #DD604E 0 2px 7px;
     color: #DD604E;
     cursor: pointer;
 }
@@ -270,6 +278,299 @@ input{
     }
 }
 
-.map{
+#map{
+    position: relative;
     width: -webkit-fill-available;
+    overflow: hidden;
+    height: 548px;
+}
+
+p{
+    margin: 0;
+}
+
+.main-text{
+    padding: 16% 0px 0px 8%;
+    font-size: 64px;
+    line-height: 1.5;
+    white-space: nowrap;
+    font-weight: 600;
+    color: white;
+    position: absolute;
+    z-index: 1;
+}
+
+main{
+    height: 3000px;
+}
+
+.slider{
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+}
+
+.slider .slide-track{
+    background-color: black;
+    height: 229px;
+    display: flex;
+    animation: scroll 35s linear infinite;
+    -webkit-animation:scroll 35s linear infinite;
+    width: 4702px;
+}
+
+.slider .slide{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.slider .slide img{
+    width: fit-content;
+    height: fit-content;
+    margin: 32.5px;
+}
+
+@keyframes scroll{
+    0%{
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100%{
+        -webkit-transform: translateX(-2351px);
+        transform: translateX(-2351px);
+    }
+}
+
+.box{
+    width: -webkit-fill-available;
+    padding-top: 71%;
+}
+
+.our-works{
+    width: -webkit-fill-available;
+    height: 390px;
+    background-image: linear-gradient( rgba(0,0,0),rgba(0,0,0,0));
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.our-works h2{
+    color: #DD604E;
+    font-weight: 500;
+    font-size: 32px;
+    margin-top: 0;
+}
+
+.works-text p{
+    color: white;
+    width: 279px;
+    height: 165px;
+}
+.works-text a{
+    color: white;
+    text-decoration: none;
+}
+
+.works-cars{
+    display: flex;
+    gap: 51px;
+}
+
+.works-block{
+    display: flex;
+    gap: 29px;
+}
+
+.works-cars-block img{
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    border-radius: 18px;
+    object-fit: cover;
+    position: relative;
+}
+.works-cars-block{
+    width: 237px;
+    height: 191px;
+    border-radius: 18px;
+    background-image: linear-gradient(rgba(0,0,0,82%),rgba(10,10,10,54%),rgba(23,23,23,24%),rgba(0,0,0,0));
+
+}
+
+.works-cars-block p{
+    border-radius: 18px;
+    padding: 1% 0 0 1%;
+    height: 5vw;
+    width: 224.760px;
+    color: white;
+    position: absolute;
+    z-index: 1;
+    background-image: linear-gradient(rgba(0,0,0,82%),rgba(10,10,10,54%),rgba(23,23,23,24%),rgba(0,0,0,0));
+}
+
+.about-us{
+    padding-top: 5%;
+}
+
+.about-us-block{
+    padding-top: 8%;
+}
+
+.aub-head{
+    display: flex;
+    gap: 61px;
+}
+
+.aub-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.aub-text h2{
+    margin: 0 0 5% 0;
+    color: #DD604E;
+    font-weight: 500;
+    font-size: 32px;
+}
+
+.aub-text p{
+    color: white;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.aub-text a{
+    text-decoration: none;
+    color: white;
+}
+
+.read-more{
+    margin-top: 5%;
+}
+
+.tutor-num{
+    margin-top: -3%;
+    z-index: 1;
+    position: absolute;
+    background-color: #DD604E;
+    height: 86px;
+    width: 86px;
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tutor-num p{
+    font-family: "Nothing You Could Do";
+    font-weight: 400;
+    font-size: 64px;
+    color: white;
+}
+
+.tutor-text{
+    position: relative;
+    margin: 0% 0 0 7%;
+    width: 265px;
+    height: 133px;
+    background-color: white;
+    border-radius: 19px;
+}
+
+.tutor-text p{
+    font-weight: 400;
+    font-size: 16px;
+    color: black;
+    padding: 25px 10px 10px 15px;
+    line-height: 1.5;
+}
+
+.aub-foot{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.aub-button{
+    border: 1px solid #FFFFFF;
+    width: 444px;
+    height: 86px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10%;
+    cursor: pointer;
+    &:hover{
+        text-shadow: #DD604E 0 5px 30px;
+        border: 1px solid #DD604E;
+    }
+}
+
+.aub-button a{
+    text-align: center;
+    width: 444px;
+    color: #DD604E;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 36px;
+}
+
+.new-arrivals{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    margin-top: 5%;
+}
+
+.new-arrivals h2{
+    font-size: 32px;
+    font-weight: 500;
+    color: white;
+}
+
+.arrivals-blocks{
+    display: flex;
+    gap: 41px;
+}
+
+.arrivals-blocks .block{
+    height: 400px;
+    width: 250px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.arrivals-blocks .block .title{
+    margin-top: 18px;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+}
+.arrivals-blocks .block .title span{
+    font-size: 16px;
+    font-weight: 500;
+    color: #898989;
+}
+.arrivals-blocks .block .foot{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18px;
+}
+.arrivals-blocks .block .foot .price{
+    font-size: 20px;
+    color: white;
+    font-weight: 600;
+}
+.arrivals-blocks .block .foot a{
+    font-size: 14px;
+    color: #DD604E;
+    font-weight: 500;
+    text-shadow: #DD604E 0 5px 13.8px;
+    text-decoration: none;
 }
