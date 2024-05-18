@@ -1,1 +1,2 @@
 DATABASE_URL = mongodb+srv://<username>:<password>@cartune.5vndnei.mongodb.net/
+ACCESS_TOKEN_SECRET=secret

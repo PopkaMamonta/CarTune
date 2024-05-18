@@ -7,6 +7,7 @@ const app=express()
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoute');
 const session = require('express-session');
+const routes = require('./routes/userRoute');
 
 
 const hbs=exphbs.create({
@@ -29,13 +30,11 @@ app.get('/login', (req,res)=>{
 })
 
 app.use(express.json());
-app.use(session({
-    secret: 'admin123',
-    resave: false,
-    saveUninitialized: false
-}));
+
 app.use('/', require('./routes/root'));
 app.use('/user', userRoutes);
+app.use('/api', routes);
+app.use('/api', require('./routes/userRoute'));
 
 app.get('/', (req, res) => {
     if (req.session && req.session.user) {
