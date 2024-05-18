@@ -574,3 +574,105 @@ main{
     text-shadow: #DD604E 0 5px 13.8px;
     text-decoration: none;
 }
+
+.main-constructor{
+    display: flex;
+    height: 1000px;
+    flex-direction: row-reverse;
+}
+
+#canvas{
+    width: 1000px;
+    position: relative;
+    top: 20%;
+}
+canvas{
+    width: -webkit-fill-available !important;
+    height: auto !important;
+}
+
+#change{
+    position:relative;
+    top: 30%;
+}
+
+.construct-tools{
+    width: -webkit-fill-available;
+    position: relative;
+    top: 20%;
+    margin-left: 5%;
+    display: flex;
+    gap: 4%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.color{
+    width: 100px;
+}
+.construct-tools .color h2,.construct-tools .tuning h2{
+    font-weight: 500;
+    font-size: 32px;
+    color: white;
+    width: 100px;
+    text-align: center;
+}
+.tuning{
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.wing-parts{
+    display: flex;
+    width: 100px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wing-parts p{
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.wing-parts .parts{
+    width: 100px;
+    height: 100px;
+    background-color: white;
+}
+.wing-parts .parts option{
+    width: 100px;
+    height: 100px;
+    background-color: white;
+}
+
+.wing-parts .parts p{
+    padding-top: 7px;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+}
+
+#color {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    width: 100px;
+    height: 100px;
+    border: none;
+    cursor: pointer;
+  }
+  #color::-webkit-color-swatch {
+    border-radius: 50%;
+    border: 3px solid white;
+  }
+  #color::-moz-color-swatch {
+    border-radius: 50%;
+    border: 3px solid white;
+  }
+
+  

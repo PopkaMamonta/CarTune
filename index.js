@@ -14,8 +14,13 @@ app.set('views','views')
 
 app.use(express.static('public'))
 
+
 app.get('/', (req,res)=>{
     res.render('index')
+})
+
+app.get('/constructor', (req,res)=>{
+    res.render('constructor')
 })
 
 const PORT=process.env.PORT || 3000

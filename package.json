@@ -17,13 +17,15 @@
     "url": "https://github.com/PopkaMamonta/CarTune/issues"
   },
   "homepage": "https://github.com/PopkaMamonta/CarTune#readme",
-  "devDependencies":{
-    "nodemon": "^3.1.0"
+  "devDependencies": {
+    "nodemon": "^3.1.0",
+    "vite": "^5.2.11"
   },
   "dependencies": {
     "express": "^4.19.2",
     "express-handlebars": "^7.1.2",
     "handlebar": "^1.0.0",
-    "node": "^22.0.0"
+    "node": "^22.0.0",
+    "three": "^0.164.1"
   }
 }
