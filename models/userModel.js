@@ -35,8 +35,7 @@ users.methods.generateAccessToken = function() {
     const accessToken = jwt.sign({
             "user": {
                 "id": this._id,
-                "email": this.email,
-                "password": this.password
+                "email": this.email
             }
         },
         process.env.ACCESS_TOKEN_SECRET,
@@ -48,10 +47,8 @@ users.methods.generateAccessToken = function() {
 users.methods.toUserResponseAuth = async function() {
         const token=this.generateAccessToken()
         return {
-            
             username: this.username,
             email: this.email,
-            password:this.password,
             token: token
         }
     }

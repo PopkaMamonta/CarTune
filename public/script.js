@@ -69,7 +69,19 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
         });
 
         if (response.ok) {
-            window.location.href = '/';
+            const data = await response.json();
+            console.log('Login Response Data:', data);
+            const token = data.user.token;
+
+            if (token) {
+                localStorage.setItem('jwt', token);
+
+                await fetchData();
+
+                window.location.href = '/';
+            } else {
+                alert('Token not found in response');
+            }
         } else {
             const errorData = await response.json();
             alert('Error: ' + JSON.stringify(errorData));
@@ -78,3 +90,30 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
         alert('An unexpected error occurred: ' + error.message);
     }
 });
+
+async function fetchData() {
+    const token = localStorage.getItem('jwt');
+
+    if (!token) {
+        console.error('No token found in local storage');
+        return;
+    }
+
+    try {
+        const response = await fetch('/user/current', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Token ${token}`
+            }
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            console.log('Protected route data:', data);
+        } else {
+            console.error('Request failed');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}

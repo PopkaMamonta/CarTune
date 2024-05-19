@@ -53,6 +53,7 @@ const regUser=asyncHandler(async (req,res)=>{
 //     }
 // };
 const loginUser=asyncHandler(async(req,res)=>{
+    console.log('Handling login request...');
     const email=req.body.email
     const password=req.body.password
     
@@ -61,6 +62,7 @@ const loginUser=asyncHandler(async(req,res)=>{
     }
 
     const loginUser=await User.findOne({email}).exec();
+    console.log('User found:', loginUser);
 
     if(!loginUser){
         return res.status(404).json({message:"Пользователь не найден!"})
@@ -72,6 +74,7 @@ const loginUser=asyncHandler(async(req,res)=>{
         return res.status(401).json({message:"Ошибка авторизации: Неправильный пароль"})
     }
     
+    const token = await loginUser.generateAccessToken();
 
     res.status(200).json({
         user:await loginUser.toUserResponseAuth()
