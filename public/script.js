@@ -91,6 +91,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
     }
 });
 
+// fetch jwt token and put auth token automatically
 async function fetchData() {
     const token = localStorage.getItem('jwt');
 
