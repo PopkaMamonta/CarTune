@@ -34,7 +34,6 @@ loader.load('ma7.glb', function ( gltf ) {
         wing.visible=false
         car.children[0].material.color=({b:0,g:0,isColor:true,r:0});
         
-
     }
 );
 new RGBELoader()
@@ -67,7 +66,7 @@ new RGBELoader()
 // const spotLightHelper=new THREE.SpotLightHelper(spotLight);
 // scene.add(spotLightHelper)
 
-camera.position.set(6,3,0);
+camera.position.set(7,2,0);
 
 const controls=new OrbitControls(camera,renderer.domElement);
 controls.maxPolarAngle = Math.PI/2; 

@@ -1,28 +1,36 @@
     <nav class="navbar">
         <div class="logo-block">
             <img src="img/logo1.png" alt="">
-            <a href="#" class="logo"><font color="#DD604E">Car</font>Tune</a>
+            <a href="/" class="logo"><font color="#DD604E">Car</font>Tune</a>
         </div>
         <input type="checkbox" id="toggler">
         <label for="toggler" class="down-menu"><i class="ri-menu-line"></i></label>
         <div class="menu">
             <ul class="nav-list">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Constructor</a></li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/constructor">Constructor</a></li>
                 <li><a href="#">Catalog</a></li>
                 <li><a href="#">Portfolio</a></li>
             </ul>
         </div>
         <div class="right-block">
             <label for="checkbox" class="toggler-theme">
-                <input type="checkbox" id="checkbox">
+                <input type="checkbox" name="theme" id="checkbox">
                 <span class="ball"></span>
                 <i class="ri-sun-line sun"></i>
                 <i class="ri-moon-line moon"></i>
             </label>
-            <div class="login-block">
+            <div class="login-block" id="login-button" style="display:none;">
                 <img class="login-logo" src="img/user-interface.png" alt="">
-                <a href="#" class="login">Login</a>
+                <a href="/login" id="login-text" class="login">Login</a>
+            </div>
+            <div class="exit-block" id="exit-button" style="display:none;">
+                <img class="exit-logo" src="img/user-interface.png" alt="">
+                <a href="" class="exit">Exit</a>
+            </div>
+            <div class="back-block" id="back-button" style="display:none;">
+                <img class="back-logo" src="img/arrow-back.png" alt="">
+                <a href="javascript:history.back()" class="back">Back</a>
             </div>
         </div>
     </nav>
