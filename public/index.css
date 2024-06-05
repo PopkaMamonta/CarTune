@@ -740,9 +740,9 @@ canvas{
     border: none;
     margin: 8px 0;
     padding: 10px 15px;
-    font-size: 13px;
-    border-radius: 8px;
+    font-size: 16px;
     width: 100%;
+    color: white;
     outline: none;
 }
 
@@ -851,4 +851,25 @@ canvas{
 
 .container.active .toggle-right{
     transform: translateX(200%);
+}
+
+.car_choice_menu{
+    height: 1500px;
+}
+.car_choice{
+    position: relative;
+    top: 20%;
+    height: 100px;
+    width: 100px;
+}
+
+.side-blocks{
+    display: block;
+    width: 120px;
+}
+
+.constructor-block h2{
+    margin: 0;
+    padding-top: 15%;
+    display: none;
 }

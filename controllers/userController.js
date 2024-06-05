@@ -16,7 +16,7 @@ const regUser=asyncHandler(async (req,res)=>{
         "username":username,
         "password":hashedPass,
     };
-
+    
     const createdUser= await User.create(userObject);
 
     if(createdUser){

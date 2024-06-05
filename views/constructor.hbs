@@ -1,25 +1,26 @@
-<div class="main-constructor" style="height: 1000px;">
-    <div id="canvas"></div>
-    <form action="">
-        
-    </form>
-    <div class="construct-tools">
-        <div class="color">
-            <h2>Color</h2>
-            <input id="color" type="color" class="blue">
-        </div>
-        <div class="tuning">
-            <h2>Tuning</h2>
-            <div class="wing-parts">
-                <p>Wings</p>
-                <select class="parts">
-                    <option value="0">Clear</option>
-                    <option value="1">Carbon Fiber Wing</option>
-                </select>
+<div class="constructor-block">
+    <h2 id="carName"></h2>
+    <div class="main-constructor" style="height: 1000px;">
+        <div id="canvas"></div>
+        <div class="construct-tools">
+            <div class="color">
+                <h2>Color</h2>
+                <input id="color" type="color" class="blue">
             </div>
-        </div>
-        <div >
-
+            <div class="tuning">
+                <h2>Tuning</h2>
+                <div class="wing-parts">
+                    <p>Wings</p>
+                    <select class="parts" id="chosenWing">
+                        <option value="none">Clear</option>
+                        <option value="Wing">Carbon Fiber Wing</option>
+                    </select>
+                </div>
+            </div>
+            <div >
+                <button id="savePreset" type="submit">Save preset</button>
+            </div>
         </div>
     </div>
 </div>
+

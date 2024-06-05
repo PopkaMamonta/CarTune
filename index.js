@@ -9,6 +9,8 @@ const homeRoutes=require('./routes/root')
 const userRoutes = require('./routes/userRoute');
 const session = require('express-session');
 const routes = require('./routes/userRoute');
+const carRoutes = require('./routes/carRoute');
+const presetRoutes = require('./routes/presetRoute');
 
 const hbs=exphbs.create({
     defaultLayout: 'main',
@@ -34,11 +36,16 @@ app.get('/login', (req,res)=>{
 app.get('/constructor', (req,res)=>{
     res.render('constructor')
 })
+app.get('/cars', (req,res)=>{
+    res.render('construct_car')
+})
 
 app.use(express.json());
 app.use('/', homeRoutes);
 app.use('/user', userRoutes);
 app.use('/api', routes);
+app.use('/car',carRoutes);
+app.use('/preset',presetRoutes);
 
 const PORT=process.env.PORT || 3000
 

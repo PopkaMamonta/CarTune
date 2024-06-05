@@ -1,9 +1,101 @@
+
 import * as THREE from "three";
 
 
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
+if(window.location.pathname=="/constructor"){
+    
+    document.getElementById('savePreset').addEventListener('click', async function(event) {
+        event.preventDefault();
+        const name = document.getElementById('carName').value;
+        console.log(name);
+        const color = document.getElementById('color').value;
+        console.log(color);
+        const r = parseInt(color.substr(1,2), 16)/255
+        const g = parseInt(color.substr(3,2), 16)/255
+        const b = parseInt(color.substr(5,2), 16)/255
+        const wing = document.getElementById('chosenWing').value;
+        
+
+        try {
+            const response = await fetch('/car/all', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+    
+            if (response.ok) {
+                data = await response.json();
+                console.log('Login Response Data:', data);
+            }
+        }catch (error) {
+            alert('An unexpected error occurred: ' + error.message);
+        }
+
+        for (let index = 0; index < data.car.length; index++) {            
+            if(name==data.car[index].name){
+                car=data.car[index]._id
+            }
+            
+        }
+
+        try {
+            const response = await fetch('/preset/preset', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    car: car,
+                    wing: wing,
+                    r:r,
+                    g:g,
+                    b:b
+                })
+            });
+
+            if (response.ok) {
+                data = await response.json();
+                console.log('Login Response Data:', data);
+            }
+        } catch (error) {
+            alert('An unexpected error occurred: ' + error.message);
+        }
+
+    });
+
+    let data;
+    async function getCars(){
+        try {
+            const response = await fetch('/car/all', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+    
+            if (response.ok) {
+                data = await response.json();
+                console.log('Login Response Data:', data);
+            }
+        }catch (error) {
+            alert('An unexpected error occurred: ' + error.message);
+        }
+        return data;
+    }
+    data=await getCars();
+    for (let index = 0; index < data.car.length; index++) {
+        const insertBefore = (el, htmlString) =>
+        el.insertAdjacentHTML('beforebegin', htmlString);
+          
+        insertBefore(document.getElementById('canvas'), '<button class="car_choice">'+data.car[index].model+' '+data.car[index].name+'</button>');
+        
+    }
+
+
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
@@ -19,23 +111,34 @@ renderer.setSize(window.innerWidth,window.innerHeight);
 container.appendChild(renderer.domElement)
 
 
-
 let wing;
 let car;
 const loader = new GLTFLoader().setPath( '3Dmodels/' );
-loader.load('ma7.glb', function ( gltf ) {
+const elements = document.querySelectorAll('.car_choice');
+for (let index = 0; index < data.car.length; index++) {
+    elements[index].addEventListener("click", function (e) {
+        document.getElementById('carName').innerText=data.car[index].name;
+        loader.load(data.car[index].url, function ( gltf ) {
+            while(scene.children.length > 0){ 
+                scene.remove(scene.children[0]); 
+            }
+            scene.add(gltf.scene);
+            
+            wing = gltf.scene.getObjectByName("Wing")
+            console.log(wing)
+            car = gltf.scene.getObjectByName("Car")
+            console.log(car)
+            wing.visible=false
+            car.children[0].material.color=({b:0,g:0,isColor:true,r:0});
+            controls.minDistance = 6.5;
+            controls.maxDistance = 10;
+            
+        }
+    );
+      });
+    
+}
 
-        scene.add(gltf.scene);
-        
-        wing = gltf.scene.getObjectByName("Wing")
-        console.log(wing)
-        car = gltf.scene.getObjectByName("Car")
-        console.log(car)
-        wing.visible=false
-        car.children[0].material.color=({b:0,g:0,isColor:true,r:0});
-        
-    }
-);
 new RGBELoader()
 			        .setPath( 'textures/' )
 					.load( 'royal_esplanade_1k.hdr', function ( texture ) {
@@ -70,8 +173,6 @@ camera.position.set(7,2,0);
 
 const controls=new OrbitControls(camera,renderer.domElement);
 controls.maxPolarAngle = Math.PI/2; 
-controls.minDistance = 6.5;
-controls.maxDistance = 10;
 
 
 function standard(){
@@ -86,9 +187,9 @@ let selectTune=document.querySelector('.parts');
 selectTune.addEventListener("change",(e) => {
     requestAnimationFrame(animate)
     console.log(e.target.value)
-    if(e.target.value==="0"){
+    if(e.target.value==="none"){
         wing.visible=false;
-    }else if(e.target.value==="1"){
+    }else if(e.target.value==="Wing"){
         wing.visible=true;
     }
 })
@@ -101,5 +202,8 @@ colorChange.addEventListener("input",(e) =>{
     const b = parseInt(color.substr(5,2), 16)/255
     car.children[0].material.color=({b:b,g:g,isColor:true,r:r});
 })
+
+
 standard()
 controls.update();
+}
